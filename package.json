@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.0.0-development",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -18,7 +18,8 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "deploy": "npm version patch && npm publish"
+    "deploy": "npm version patch && npm publish",
+    "semantic-release": "semantic-release --branches main"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -60,6 +61,14 @@
     "size-limit": "^11.2.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "semantic-release": "^24.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielangelo1/react-mobile-emulator.git"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
