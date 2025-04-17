@@ -7,6 +7,14 @@
     "dist",
     "src"
   ],
+  "description": "A React component for simulating mobile devices in a web browser.",
+  "keywords": [
+    "react",
+    "mobile",
+    "emulator",
+    "web",
+    "browser"
+  ],
   "engines": {
     "node": ">=10"
   },
