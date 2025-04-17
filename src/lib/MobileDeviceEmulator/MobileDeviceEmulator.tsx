@@ -54,10 +54,28 @@ const MobileDeviceEmulator: React.FC<EmulatorProps> = ({
   const renderContent = () => {
     if (url) {
       return (
-        <div className="relative w-full h-full">
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
           {iframeLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#f3f4f6',
+              }}
+            >
+              <div
+                style={{
+                  animation: 'spin 1s linear infinite',
+                  borderRadius: '50%',
+                  height: '3rem',
+                  width: '3rem',
+                  borderTop: '2px solid #3b82f6',
+                  borderBottom: '2px solid #3b82f6',
+                }}
+              ></div>
             </div>
           )}
           <iframe
