@@ -1,160 +1,216 @@
-# TSDX React User Guide
+# 📱 Mobile Device Emulator
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/username/mobile-device-emulator/main/preview.png" alt="Mobile Device Emulator Preview" width="500" />
+  <p>A pure CSS mobile device emulator for React</p>
+</div>
 
-> This TSDX setup is meant for developing React component libraries (not apps!) that can be published to NPM. If you’re looking to build a React-based app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+<p align="center">
+  <a href="#installation">Installation</a> •
+  <a href="#basic-usage">Basic Usage</a> •
+  <a href="#api">API</a> •
+  <a href="#supported-devices">Supported Devices</a> •
+  <a href="#examples">Examples</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
+## ✨ Features
 
-## Commands
+- 🔄 **Zero Dependencies** - Built with pure CSS
+- 📱 **Multiple Devices** - iPhone, Galaxy, Pixel and more
+- 🔄 **Orientation Modes** - Portrait and landscape
+- 🖼️ **Realistic Frames** - Precise device frame visualization
+- 📏 **Adjustable Scale** - Resize as needed
+- 🌐 **External URL Support** - Load any URL inside the emulator
+- 🧩 **Highly Customizable** - Custom device specifications
 
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
-
-The recommended workflow is to run TSDX in one terminal:
+## 📦 Installation
 
 ```bash
-npm start # or yarn start
+npm install mobile-device-emulator
+# or
+yarn add mobile-device-emulator
+# or
+pnpm add mobile-device-emulator
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+## 🚀 Basic Usage
 
-Then run the example inside another:
+```jsx
+import { MobileDeviceEmulator } from 'mobile-device-emulator';
 
-```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
-```
-
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, we use [Parcel's aliasing](https://parceljs.org/module_resolution.html#aliases).
-
-To do a one-off build, use `npm run build` or `yarn build`.
-
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle analysis
-
-Calculates the real cost of your library using [size-limit](https://github.com/ai/size-limit) with `npm run size` and visulize it with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
-
-#### React Testing Library
-
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
-
-### Rollup
-
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
+function App() {
+  return (
+    <MobileDeviceEmulator
+      deviceType="iphone13"
+      orientation="portrait"
+      scale={1}
+    >
+      <div>Your content here</div>
+    </MobileDeviceEmulator>
+  );
 }
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+### Loading an External URL
 
-## Module Formats
+```jsx
+import { MobileDeviceEmulator } from 'mobile-device-emulator';
 
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Deploying the Example Playground
-
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
-
-```bash
-cd example # if not already in the example folder
-npm run build # builds to dist
-netlify deploy # deploy the dist folder
+function ExternalUrlExample() {
+  return (
+    <MobileDeviceEmulator deviceType="galaxyS21" url="https://example.com" />
+  );
+}
 ```
 
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
+## 📋 API Reference
 
-```bash
-netlify init
-# build command: yarn build && cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
+### `<MobileDeviceEmulator />`
+
+| Prop              | Type                                                                 | Default      | Description                                            |
+| ----------------- | -------------------------------------------------------------------- | ------------ | ------------------------------------------------------ |
+| `deviceType`      | `'iphone13' \| 'iphone14Pro' \| 'galaxyS21' \| 'pixel6' \| 'custom'` | `'iphone13'` | Device type to emulate                                 |
+| `orientation`     | `'portrait' \| 'landscape'`                                          | `'portrait'` | Device orientation                                     |
+| `children`        | `ReactNode`                                                          | -            | Content to display inside device frame                 |
+| `url`             | `string`                                                             | -            | URL to load in an iframe (alternative to children)     |
+| `scale`           | `number`                                                             | `1`          | Optional CSS scale factor                              |
+| `customSpecs`     | `DeviceSpecs`                                                        | -            | Custom device specifications (for deviceType='custom') |
+| `showFrame`       | `boolean`                                                            | `true`       | Display device frame                                   |
+| `showButtons`     | `boolean`                                                            | `true`       | Display device buttons (power, volume)                 |
+| `className`       | `string`                                                             | -            | Custom container class name                            |
+| `backgroundColor` | `string`                                                             | `'#f5f5f5'`  | Optional background color                              |
+
+### Types
+
+```typescript
+type DeviceType =
+  | 'iphone13'
+  | 'iphone14Pro'
+  | 'galaxyS21'
+  | 'pixel6'
+  | 'custom';
+
+type Orientation = 'portrait' | 'landscape';
+
+type DeviceSpecs = {
+  width: number;
+  height: number;
+  borderRadius: number;
+  bezelColor: string;
+  bezelThickness: number;
+  notchType?: 'dynamic-island' | 'notch' | 'punch-hole' | 'none';
+  notchWidth?: number;
+  notchHeight?: number;
+};
 ```
 
-## Named Exports
+## 📱 Supported Devices
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+| Device        | Type            | Resolution   | Notes                  |
+| ------------- | --------------- | ------------ | ---------------------- |
+| iPhone 13     | `'iphone13'`    | 390 × 844    | Standard notch         |
+| iPhone 14 Pro | `'iphone14Pro'` | 393 × 852    | Dynamic Island         |
+| Galaxy S21    | `'galaxyS21'`   | 360 × 800    | Punch-hole             |
+| Pixel 6       | `'pixel6'`      | 393 × 830    | Punch-hole             |
+| Custom        | `'custom'`      | User-defined | Requires `customSpecs` |
 
-## Including Styles
+## 💡 Advanced Examples
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+### Custom Device
 
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
-
-## Usage with Lerna
-
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
-
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
-
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
-
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
+```jsx
+<MobileDeviceEmulator
+  deviceType="custom"
+  customSpecs={{
+    width: 375,
+    height: 812,
+    borderRadius: 40,
+    bezelColor: '#000000',
+    bezelThickness: 10,
+    notchType: 'none',
+  }}
+>
+  <YourApp />
+</MobileDeviceEmulator>
 ```
 
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
+### Controlling Orientation and Scale
+
+```jsx
+import { useState } from 'react';
+import { MobileDeviceEmulator, Orientation } from 'mobile-device-emulator';
+
+function ResponsiveExample() {
+  const [orientation, setOrientation] = useState < Orientation > 'portrait';
+  const [scale, setScale] = useState(1);
+
+  return (
+    <div>
+      <div className="controls">
+        <button
+          onClick={() =>
+            setOrientation(
+              orientation === 'portrait' ? 'landscape' : 'portrait'
+            )
+          }
+        >
+          Toggle Orientation
+        </button>
+        <input
+          type="range"
+          min={0.5}
+          max={1.5}
+          step={0.1}
+          value={scale}
+          onChange={e => setScale(Number(e.target.value))}
+        />
+      </div>
+
+      <MobileDeviceEmulator
+        deviceType="iphone14Pro"
+        orientation={orientation}
+        scale={scale}
+      >
+        <YourApp />
+      </MobileDeviceEmulator>
+    </div>
+  );
+}
+```
+
+### Frameless Emulation
+
+```jsx
+<MobileDeviceEmulator deviceType="pixel6" showFrame={false}>
+  <YourApp />
+</MobileDeviceEmulator>
+```
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 🙏 Acknowledgments
+
+- Inspired by various device emulators
+- Built with React and TypeScript
+- Developed with performance and zero dependencies in mind
+
+---
+
+<div align="center">
+  <sub>Crafted with ❤️ for the React Community</sub>
+</div>
+```
