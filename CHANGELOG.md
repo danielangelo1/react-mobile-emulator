@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/danielangelo1/react-mobile-emulator/compare/v1.0.0...v1.0.1) (2025-04-17)
+
+
+### Bug Fixes
+
+* update semantic-release command and correct package name in documentation ([ddbc2d4](https://github.com/danielangelo1/react-mobile-emulator/commit/ddbc2d4a66b06a162412eaaa72bdea8766ab2782))
+
 # 1.0.0 (2025-04-17)
 
 
