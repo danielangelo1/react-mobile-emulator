@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/danielangelo1/react-mobile-emulator/compare/v1.0.2...v1.0.3) (2025-04-17)
+
+
+### Bug Fixes
+
+* force rebuild ([8fc8462](https://github.com/danielangelo1/react-mobile-emulator/commit/8fc8462f0e4a5e7a9a96cdc2aa55c7733c260f7c))
+
 ## [1.0.2](https://github.com/danielangelo1/react-mobile-emulator/compare/v1.0.1...v1.0.2) (2025-04-17)
 
 
