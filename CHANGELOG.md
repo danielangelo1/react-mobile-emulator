@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/danielangelo1/react-mobile-emulator/compare/v1.0.1...v1.0.2) (2025-04-17)
+
+
+### Bug Fixes
+
+* update package.json to include description and keywords ([2fcc7e3](https://github.com/danielangelo1/react-mobile-emulator/commit/2fcc7e3a12775529fefa61e24b1a64b69cda8b1b))
+
 ## [1.0.1](https://github.com/danielangelo1/react-mobile-emulator/compare/v1.0.0...v1.0.1) (2025-04-17)
 
 
