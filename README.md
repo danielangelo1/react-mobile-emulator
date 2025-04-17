@@ -207,6 +207,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <div align="center">
-  <sub>Crafted with ❤️ for the React Community</sub>
+  <sub>Crafted with ❤️ by <a href="https://github.com/danielangelo1" target="_blank">Daniel Angelo</a> for the React Community</sub>
 </div>
-```
