@@ -1,7 +1,6 @@
 # 📱 Mobile Device Emulator
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/danielangelo1/react-mobile-emulator/main/preview.png" alt="Mobile Device Emulator Preview" width="500" />
   <p>A pure CSS mobile device emulator for React</p>
 </div>
 
@@ -14,6 +13,10 @@
   <a href="#contributing">Contributing</a> •
   <a href="#license">License</a>
 </p>
+
+  <div align="center">
+    <img src="https://github.com/user-attachments/assets/0e6e641c-6a17-4268-aa0b-8e8bb54a361c" alt="Mobile Device Emulator Preview" width="200" />
+  </div>
 
 ## ✨ Features
 
@@ -194,7 +197,7 @@ Contributions, issues, and feature requests are welcome!
 
 1. Fork this repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+3. Commit your changes (`git commit -m 'feat: Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
@@ -202,15 +205,7 @@ Contributions, issues, and feature requests are welcome!
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## 🙏 Acknowledgments
-
-- Inspired by various device emulators
-- Built with React and TypeScript
-- Developed with performance and zero dependencies in mind
-
----
 
 <div align="center">
-  <sub>Crafted with ❤️ for the React Community</sub>
+  <sub>Crafted with ❤️ by <a href="https://github.com/danielangelo1" target="_blank">Daniel Angelo</a> for the React Community</sub>
 </div>
-```
