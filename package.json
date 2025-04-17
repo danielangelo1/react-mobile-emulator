@@ -76,9 +76,6 @@
     "type": "git",
     "url": "https://github.com/danielangelo1/react-mobile-emulator.git"
   },
-  "publishConfig": {
-    "access": "restricted"
-  },
   "dependencies": {
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.2.0",

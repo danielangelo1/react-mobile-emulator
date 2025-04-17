@@ -1,7 +1,7 @@
 # 📱 Mobile Device Emulator
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/username/mobile-device-emulator/main/preview.png" alt="Mobile Device Emulator Preview" width="500" />
+  <img src="https://raw.githubusercontent.com/danielangelo1/react-mobile-emulator/main/preview.png" alt="Mobile Device Emulator Preview" width="500" />
   <p>A pure CSS mobile device emulator for React</p>
 </div>
 
@@ -28,17 +28,17 @@
 ## 📦 Installation
 
 ```bash
-npm install mobile-device-emulator
+npm install react-mobile-emulator
 # or
-yarn add mobile-device-emulator
+yarn add react-mobile-emulator
 # or
-pnpm add mobile-device-emulator
+pnpm add react-mobile-emulator
 ```
 
 ## 🚀 Basic Usage
 
 ```jsx
-import { MobileDeviceEmulator } from 'mobile-device-emulator';
+import { MobileDeviceEmulator } from 'react-mobile-emulator';
 
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
 ### Loading an External URL
 
 ```jsx
-import { MobileDeviceEmulator } from 'mobile-device-emulator';
+import { MobileDeviceEmulator } from 'react-mobile-emulator';
 
 function ExternalUrlExample() {
   return (
@@ -140,7 +140,7 @@ type DeviceSpecs = {
 
 ```jsx
 import { useState } from 'react';
-import { MobileDeviceEmulator, Orientation } from 'mobile-device-emulator';
+import { MobileDeviceEmulator, Orientation } from 'react-mobile-emulator';
 
 function ResponsiveExample() {
   const [orientation, setOrientation] = useState < Orientation > 'portrait';
